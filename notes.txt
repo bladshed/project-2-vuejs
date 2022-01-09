@@ -1,6 +1,7 @@
 Initialize project
 - npm install -g @vue/cli
 - vue create .
+- yarn add bootstrap
 
 Reminder
  - always add node_modules inside your .gitignore file

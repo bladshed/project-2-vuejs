@@ -5,8 +5,13 @@
         <!-- search column start -->
         <div class="col-2" id="search-div">
           <div class="p-3">
-            <input id="search-input" class="form-control" type="text" placeholder="text input"/>
+            <button class="btn-sm btn-primary m-3 col-10" id="add-new-btn">
+              ADD NEW OUTFIT
+            </button>
+            <hr />
+            <hr />
 
+            <input id="search-input" class="form-control" type="text" placeholder="search input"/>
             <hr />
             <label>Types</label>
             <div class="form-check">
@@ -46,8 +51,7 @@
                 Female
               </label>
             </div>
-            <br />
-            <button class="btn-sm btn-primary mb-3 col-10" id="search-btn">
+            <button class="btn-sm btn-success m-3 col-10" id="search-btn">
               SEARCH
             </button>
           </div>

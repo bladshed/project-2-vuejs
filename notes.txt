@@ -1,3 +1,6 @@
 Initialize project
 - npm install -g @vue/cli
 - vue create .
+
+Reminder
+ - always add node_modules inside your .gitignore file

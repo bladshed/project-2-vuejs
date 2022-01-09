@@ -8,8 +8,8 @@
         </button>
         <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a v-on:click="goHomePage" class="nav-link active" aria-current="page" id="home" href="#">Home</a>
-            <a v-on:click="goOutfitsPage" class="nav-link" href="#">Outfits</a>
+            <a v-on:click="goToPage($event)" class="nav-link active" aria-current="page" id="home" href="#">Home</a>
+            <a v-on:click="goToPage($event)" class="nav-link" id="outfits" href="#">Outfits</a>
           </div>
         </div>
       </div>
@@ -40,11 +40,13 @@ export default {
     }
   },
   methods:{
-    goHomePage: function() {
-      this.page = "home"
-    },
-    goOutfitsPage: function() {
-      this.page = "outfits"
+    goToPage: function(event) {
+      let pageId = event.currentTarget.id;
+      // set page value
+      this.page = pageId;
+      // remove and set active page
+      document.querySelector(".active").classList.remove("active");
+      document.querySelector(`#${pageId}`).classList.add("active");
     }
   }
 
@@ -52,5 +54,7 @@ export default {
 </script>
 
 <style>
-
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+    font-weight: bold;
+}
 </style>

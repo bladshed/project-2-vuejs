@@ -3,6 +3,7 @@ Initialize project
 - vue create .
 - yarn add bootstrap
 - npm i -g @vue/cli-service-global
+- yarn add axios
 
 Reminder
  - always add node_modules inside your .gitignore file

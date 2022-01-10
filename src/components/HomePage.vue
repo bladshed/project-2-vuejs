@@ -1,9 +1,7 @@
 <template>
-  <div id="home-div">
-    <div id="background" class="d-flex justify-content-center align-items-center">
-      <div class="text-center title">
-        <h1>UNLOCK YOUR STYLE</h1>
-      </div>
+  <div id="content-div" class="d-flex justify-content-center align-items-center">
+    <div class="text-center title d-flex justify-content-center align-items-center">
+      <h1>UNLOCK YOUR STYLE</h1>
     </div>
   </div>
 </template>
@@ -16,15 +14,8 @@ export default {
 </script>
 
 <style>
-#home-div {
-  height: 100vh;
-  background-image: url("../images/fashion-background.jpg");
-  background-size: cover;
-}
-#background {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+#content-div{
+  height: 90vh;
 }
 .title {
   font-family: "Roboto", sans-serif;

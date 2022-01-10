@@ -4,6 +4,10 @@ Initialize project
 - yarn add bootstrap
 - npm i -g @vue/cli-service-global
 - yarn add axios
+- npm i bootstrap-vue
 
 Reminder
  - always add node_modules inside your .gitignore file
+
+ Sample modal
+ https://www.positronx.io/how-to-add-and-use-bootstrap-modal-in-vue-js-app/

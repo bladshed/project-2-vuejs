@@ -1,5 +1,5 @@
 <template>
-  <div class="card col-2 mx-2">
+  <div class="card col-2 m-2">
     <div class="card-header">
         {{ outfit.type.toUpperCase() }}
     </div>
@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  name: "OutfitCard",
   props: ["outfit"],
   data: function () {
     return {
@@ -40,7 +41,7 @@ export default {
 
 <style>
 img {
-    height: 170px;
+    height: 270px;
     width: 100%;
 }
 </style>

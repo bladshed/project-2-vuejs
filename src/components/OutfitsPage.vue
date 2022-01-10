@@ -60,6 +60,7 @@
       <div id="records-div" class="col-10 d-flex justify-content-center align-items-center flex-wrap">
         <OutfitCard
           v-on:edit-outfit="editOutfit"
+          v-on:delete-outfit="deleteOutfit"
           v-for="outfit in outfits"
           v-bind:key="outfit._id"
           v-bind:outfit="outfit"
@@ -142,6 +143,13 @@ export default {
       this.forEditData = JSON.parse(JSON.stringify(response.data.outfit));
       document.getElementById("edit-modal").click();
     },
+    deleteOutfit: async function(outfitId) {
+      if (confirm("Are you sure you want to delete this outfit? Press OK to confirm")) {
+        await axios.delete(BASE_API_URL + "outfits/" + outfitId);
+        this.refreshData();
+        alert("delete Outfit Successful!")
+      }
+    }
   }
 };
 </script>

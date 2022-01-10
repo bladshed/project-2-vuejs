@@ -2,7 +2,7 @@
   <div class="card col-2 m-2">
     <div class="card-header d-flex justify-content-between">
         {{ outfit.gender.toUpperCase() }}
-        <button class="badge bg-danger">Delete</button>
+        <button class="badge bg-danger" v-on:click="deleteOutfit">Delete</button>
     </div>
     <div class="card-body">
         <h5 class="card-title">{{ outfit.type.toUpperCase() }}</h5>
@@ -30,6 +30,9 @@ export default {
   methods: {
     editOutfit: function () {
       this.$emit("edit-outfit", this.outfit._id);
+    },
+    deleteOutfit: function () {
+      this.$emit("delete-outfit", this.outfit._id);
     },
   },
   computed: {

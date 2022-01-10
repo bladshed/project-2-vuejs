@@ -103,6 +103,7 @@ const BASE_API_URL = "http://localhost:7070/";
 export default {
   name: "OutfitsPage",
   created: async function () {
+    // initialize data
     let response = await axios.get(BASE_API_URL + "outfits");
     this.outfits = response.data;
   },
@@ -119,33 +120,43 @@ export default {
   },
   methods:{
     refreshData: async function (){
+      // call get all outfits api
       let response = await axios.get(BASE_API_URL + "outfits");
       this.outfits = response.data;
     },
     newModal: function() {
+      // set boolean
       this.isNewOutfit = true;
     },
     addEditOutfit: async function(outfitData) {
       if(outfitData.id){
+        // call edit api
         await axios.put(BASE_API_URL + "outfits/" +outfitData.id, outfitData);
         alert("Edit Outfit Successful!")
       } else {
+        // call add new api
         await axios.post(BASE_API_URL + "outfits",outfitData);
         alert("New Outfit Added!")
       }
+      // close modal
       document.querySelector('.close').click();
+      // refresh data list
       this.refreshData();
     },
     editOutfit: async function(outfitId) {
+      // set boolean
       this.isNewOutfit = false;
+      // get outfit data
       let response = await axios.get(BASE_API_URL + "outfits/" + outfitId);
-      console.log("Edit data: " + JSON.stringify(response.data.outfit));
-      this.forEditData = JSON.parse(JSON.stringify(response.data.outfit));
+      // set data
+      this.forEditData = response.data.outfit;
       document.getElementById("edit-modal").click();
     },
     deleteOutfit: async function(outfitId) {
       if (confirm("Are you sure you want to delete this outfit? Press OK to confirm")) {
+        // call delete api
         await axios.delete(BASE_API_URL + "outfits/" + outfitId);
+        // refresh data list
         this.refreshData();
         alert("delete Outfit Successful!")
       }

@@ -86,13 +86,16 @@ export default {
   },
   methods: {
     addEditOutfit: function () {
+      // set boolean
       this.hasSubmitted = true;
+
+      // validate form
       if(this.newOutfit.submittedBy.length > 0
        && this.newOutfit.type.length > 0
        && this.newOutfit.gender.length > 0
        && this.newOutfit.img_url.length > 0
        && this.newOutfit.description.length > 0)
-        this.$emit("add-edit-outfit", { ...this.newOutfit });
+        this.$emit("add-edit-outfit", { ...this.newOutfit }); //trigger event
       else {
         alert("Please fill up everything");
       }

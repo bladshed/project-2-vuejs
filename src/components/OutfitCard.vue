@@ -35,7 +35,7 @@ export default {
       this.$emit("delete-outfit", this.outfit._id);
     },
   },
-  computed: {
+  // computed: {
     // a computed property is like a function
     // in the `methods`
     // however we refer to it as if it is a data
@@ -49,7 +49,7 @@ export default {
     //       return this.outfit.dateCreated.split("T")[0]
     //     }
     // },
-  }
+  // }
 };
 </script>
 

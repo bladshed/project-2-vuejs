@@ -24,11 +24,7 @@
           </label>
         </div>
         <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value="streetwear"
-          />
+          <input class="form-check-input" type="checkbox" value="streetwear"/>
           <label class="form-check-label" for="flexCheckDefault">
             Streetwear
           </label>

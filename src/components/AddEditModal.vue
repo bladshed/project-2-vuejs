@@ -63,17 +63,18 @@
         * Please input description
     </div>
 
-    <b-button class="btn-sm mt-3" variant="success" block v-on:click="addNewOutfit">Submit</b-button>
+    <b-button class="btn-sm mt-3" variant="success" block v-on:click="addEditOutfit">Submit</b-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AddOutfitModal",
+  name: "AddEditModal",
   props: ["initOutfit", "mode"],
   data: function () {
     return {
       newOutfit: {
+        id: this.initOutfit._id,
         submittedBy: this.initOutfit.submittedBy,
         type: this.initOutfit.type,
         gender: this.initOutfit.gender,
@@ -84,14 +85,14 @@ export default {
     };
   },
   methods: {
-    addNewOutfit: function () {
+    addEditOutfit: function () {
       this.hasSubmitted = true;
       if(this.newOutfit.submittedBy.length > 0
        && this.newOutfit.type.length > 0
        && this.newOutfit.gender.length > 0
        && this.newOutfit.img_url.length > 0
        && this.newOutfit.description.length > 0)
-        this.$emit("new-outfit-added", { ...this.newOutfit });
+        this.$emit("add-edit-outfit", { ...this.newOutfit });
       else {
         alert("Please fill up everything");
       }
@@ -116,7 +117,7 @@ export default {
     },
     isDescriptionOK: function () {
       return this.newOutfit.description.length > 0;
-    },
+    }
   },
 };
 </script>

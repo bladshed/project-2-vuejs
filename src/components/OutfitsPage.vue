@@ -2,10 +2,9 @@
   <div id="content-div" class="d-flex">
     <main class="d-flex py-3">
       <!-- search column start -->
-      <div class="col-2 p-1 justify-content-center align-items-center" id="search-div">
-        <br />
+      <div class="col-2 p-3 justify-content-center align-items-center" id="search-div">
         <div class="text-center">
-          <b-button v-b-modal.add-outfit variant="primary" class="btn-sm m-1 col-10 text-center">Add Outfit</b-button>
+          <b-button v-b-modal.modal-outfit variant="primary" class="btn-sm m-1 col-10 text-center" v-on:click="newModal">Add Outfit</b-button>
         </div>
         <hr />
 
@@ -60,18 +59,20 @@
       <!-- outfit records start -->
       <div id="records-div" class="col-10 d-flex justify-content-center align-items-center flex-wrap">
         <OutfitCard
+          v-on:edit-outfit="editOutfit"
           v-for="outfit in outfits"
           v-bind:key="outfit._id"
           v-bind:outfit="outfit"
         />
+        <b-button v-b-modal.modal-outfit id="edit-modal" class="d-none">Add Outfit</b-button>
       </div>
       <!-- outfit records end -->
     </main>
 
     <!-- modal -->
-    <b-modal id="add-outfit" title="BootstrapVue" hide-footer>
-      <AddOutfitModal 
-        v-on:new-outfit-added="addOutfit"
+    <b-modal id="modal-outfit" title="Outfit Form" hide-footer>
+      <AddEditModal v-if="isNewOutfit"
+        v-on:add-edit-outfit="addEditOutfit"
         v-bind:initOutfit="{
           submittedBy: '',
           type: '',
@@ -79,6 +80,10 @@
           img_url: '',
           description : ''
         }" 
+      />
+      <AddEditModal v-else
+        v-on:add-edit-outfit="addEditOutfit"
+        v-bind:initOutfit="forEditData"
       />
     </b-modal>
     <!-- add/edit modal start -->
@@ -89,7 +94,7 @@
 
 <script>
 import OutfitCard from "./OutfitCard";
-import AddOutfitModal from "./AddOutfitModal"
+import AddEditModal from "./AddEditModal"
 import axios from "axios";
 
 const BASE_API_URL = "http://localhost:7070/";
@@ -101,12 +106,14 @@ export default {
     this.outfits = response.data;
   },
   components: {
-    OutfitCard, AddOutfitModal,
+    OutfitCard, AddEditModal
   },
+  props: ["forEditData"],
   data: function () {
     return {
       outfits: [],
-      isModalClicked: false
+      isModalClicked: false,
+      isNewOutfit: false
     };
   },
   methods:{
@@ -114,20 +121,27 @@ export default {
       let response = await axios.get(BASE_API_URL + "outfits");
       this.outfits = response.data;
     },
-    clickModal: function() {
-      if(this.isModalClicked){
-        this.isModalClicked = false;
-      } else {
-        this.isModalClicked = true;
-      }
+    newModal: function() {
+      this.isNewOutfit = true;
     },
-    addOutfit: async function(newOutfit) {
-      console.log(newOutfit);
-      await axios.post(BASE_API_URL + "outfits",newOutfit);
-      alert("New Outfit Added!")
+    addEditOutfit: async function(outfitData) {
+      if(outfitData.id){
+        await axios.put(BASE_API_URL + "outfits/" +outfitData.id, outfitData);
+        alert("Edit Outfit Successful!")
+      } else {
+        await axios.post(BASE_API_URL + "outfits",outfitData);
+        alert("New Outfit Added!")
+      }
       document.querySelector('.close').click();
       this.refreshData();
-    }
+    },
+    editOutfit: async function(outfitId) {
+      this.isNewOutfit = false;
+      let response = await axios.get(BASE_API_URL + "outfits/" + outfitId);
+      console.log("Edit data: " + JSON.stringify(response.data.outfit));
+      this.forEditData = JSON.parse(JSON.stringify(response.data.outfit));
+      document.getElementById("edit-modal").click();
+    },
   }
 };
 </script>

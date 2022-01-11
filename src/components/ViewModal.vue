@@ -13,30 +13,62 @@
     <br />
     <div>
       <h3>REVIEWS:</h3>
+      <ReviewCard 
+        v-for="review in viewOutfit.reviews"
+        v-bind:key="review._id"
+        v-bind:forReview="review"
+        v-on:edit-review="addEditReview"
+      />
+      <ReviewCard 
+        v-bind:forReview="{
+          submittedBy: '',
+          comment : '',
+          rating: '',
+          isNew: true
+        }"
+        v-on:save-review="addEditReview"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import ReviewCard from "./ReviewCard";
+import axios from "axios";
 
-// const BASE_API_URL = "http://localhost:7070/";
+const BASE_API_URL = "http://localhost:7070/";
 
 export default {
   name: "ViewModal",
-  props: ["initOutfitData", "mode"],
+  components: {
+    ReviewCard
+  },
+  props: ["initOutfitData"],
   data: function () {
     return {
-      viewOutfit: {
-        id: this.initOutfitData._id,
-        submittedBy: this.initOutfitData.submittedBy,
-        type: this.initOutfitData.type,
-        gender: this.initOutfitData.gender,
-        img_url: this.initOutfitData.img_url,
-        description: this.initOutfitData.description,
-      },
+      viewOutfit: this.initOutfitData,
     };
   },
   methods: {
+    refreshOutfitData: async function() {
+      // call get all outfits api
+      let response = await axios.get(BASE_API_URL + "outfits/" + this.viewOutfit._id);
+      this.viewOutfit = response.data.outfit;
+    },
+    addEditReview: async function(review) {
+      console.log("Review data:" + JSON.stringify(review))
+      if(review.id){
+        // call edit review api
+        await axios.put(BASE_API_URL + "outfits/" +this.viewOutfit._id, review);
+        alert("Edit Outfit Successful!")
+      } else {
+        // call add new api /outfits/:id/reviews/add
+        // await axios.post(BASE_API_URL + "outfits/" +this.viewOutfit._id + "/reviews/add", review);
+        // alert("New Review Added!");
+      }
+      // refresh data
+      this.refreshOutfitData();
+    }
   },
   computed: {
   },

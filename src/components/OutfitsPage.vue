@@ -78,7 +78,7 @@
           gender: '',
           img_url: '',
           description : ''
-        }" 
+        }"
       />
       <AddEditModal v-else
         v-on:add-edit-outfit="addEditOutfit"
@@ -163,7 +163,7 @@ export default {
       let response = await axios.get(BASE_API_URL + "outfits/" + outfitId);
       // set data
       this.forEditData = response.data.outfit;
-      console.log("DATA: " + JSON.stringify(this.forEditData));
+      // click button to open modal
       document.getElementById("view-modal").click();
     },
     deleteOutfit: async function(outfitId) {

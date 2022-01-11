@@ -1,6 +1,6 @@
 <template>
   <div id="content-div" class="d-flex">
-    <main class="d-flex py-3">
+    <main class="d-flex py-3 w-100">
       <!-- search column start -->
       <div class="col-2 p-3 justify-content-center align-items-center" id="search-div">
         <div class="text-center">
@@ -8,24 +8,24 @@
         </div>
         <hr />
 
-        <input id="search-input" class="form-control" type="text" placeholder="search input"/>
+        <input id="search-input" class="form-control" type="text" placeholder="search input" v-model="searchInput"/>
         <hr />
         <label>Types</label>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="formal" />
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" id="search-formal" name="search-formal" value="formal" v-model="searchType"/>
+          <label class="form-check-label" for="search-formal">
             Formal
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="casual" />
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" id="search-casual" name="search-casual" value="casual" v-model="searchType"/>
+          <label class="form-check-label" for="search-casual">
             Casual
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="streetwear"/>
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" id="search-streetwear" name="search-streetwear" value="streetwear" v-model="searchType"/>
+          <label class="form-check-label" for="search-streetwear">
             Streetwear
           </label>
         </div>
@@ -33,19 +33,19 @@
         <hr />
         <label>Genders</label>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="male" />
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" id="search-male" name="search-male" value="male" v-model="searchGender"/>
+          <label class="form-check-label" for="search-male">
             Male
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="female" />
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" id="search-female" name="search-female" value="female" v-model="searchGender"/>
+          <label class="form-check-label" for="search-female">
             Female
           </label>
         </div>
         <div class="text-center">
-          <button class="btn-sm btn-success m-1 col-10" id="search-btn">
+          <button class="btn-sm btn-success m-1 col-10" id="search-btn" v-on:click="searchQuery">
             SEARCH
           </button>
         </div>
@@ -103,6 +103,7 @@ import OutfitCard from "./OutfitCard";
 import AddEditModal from "./AddEditModal"
 import ViewModal from "./ViewModal"
 import axios from "axios";
+import qs from 'qs'
 
 const BASE_API_URL = "http://localhost:7070/";
 
@@ -121,7 +122,10 @@ export default {
     return {
       outfits: [],
       isModalClicked: false,
-      isNewOutfit: false
+      isNewOutfit: false,
+      searchInput: '',
+      searchType: [],
+      searchGender: []
     };
   },
   methods:{
@@ -174,6 +178,22 @@ export default {
         this.refreshData();
         alert("Delete Outfit Successful!")
       }
+    },
+    searchQuery: async function() {
+      // call search api
+      let results = await axios.get(BASE_API_URL + 'outfit-search', {
+        params: {
+          description: this.searchInput,
+          types: this.searchType,
+          genders: this.searchGender
+        },
+        paramsSerializer: params => {
+          return qs.stringify(params)
+        }
+      });
+
+      // set query list
+      this.outfits = results.data;
     }
   }
 };

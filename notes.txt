@@ -5,10 +5,11 @@ Initialize project
 - npm i -g @vue/cli-service-global
 - yarn add axios
 - npm i bootstrap-vue
-- yarn add @fortawesome/fontawesome-svg-core@next
-- yarn add @fortawesome/free-solid-svg-icons@next
-- yarn add @fortawesome/free-regular-svg-icons@next
-- yarn add @fortawesome/vue-fontawesome@latest
+- yarn add @fortawesome/fontawesome-svg-core@next (optional)
+- yarn add @fortawesome/free-solid-svg-icons@next (optional)
+- yarn add @fortawesome/free-regular-svg-icons@next (optional)
+- yarn add @fortawesome/vue-fontawesome@latest (optional)
+- yarn add qs (optional)
 
 Reminder
  - always add node_modules inside your .gitignore file

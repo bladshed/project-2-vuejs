@@ -4,7 +4,7 @@
       <!-- search column start -->
       <div class="col-2 p-3 justify-content-center align-items-center" id="search-div">
         <div class="text-center">
-          <b-button v-b-modal.modal-outfit variant="primary" class="btn-sm m-1 col-10 text-center" v-on:click="newModal">Add Outfit</b-button>
+          <b-button v-b-modal.modal-outfit variant="success" class="btn-sm m-1 col-10 text-center" v-on:click="newModal">Add Outfit</b-button>
         </div>
         <hr />
 
@@ -56,17 +56,19 @@
       <div id="records-div" class="col-10 d-flex justify-content-center align-items-center flex-wrap">
         <OutfitCard
           v-on:edit-outfit="editOutfit"
+          v-on:view-outfit="viewOutfit"
           v-on:delete-outfit="deleteOutfit"
           v-for="outfit in outfits"
           v-bind:key="outfit._id"
           v-bind:outfit="outfit"
         />
         <b-button v-b-modal.modal-outfit id="edit-modal" class="d-none">Add Outfit</b-button>
+        <b-button v-b-modal.view-modal id="view-modal" class="d-none">Add Outfit</b-button>
       </div>
       <!-- outfit records end -->
     </main>
 
-    <!-- modal -->
+    <!-- add/edit modal start -->
     <b-modal id="modal-outfit" title="Outfit Form" hide-footer>
       <AddEditModal v-if="isNewOutfit"
         v-on:add-edit-outfit="addEditOutfit"
@@ -83,15 +85,23 @@
         v-bind:initOutfit="forEditData"
       />
     </b-modal>
-    <!-- add/edit modal start -->
+    <!-- add/edit modal end -->
 
-    <!-- <Modal /> -->
+    <!-- view modal start -->
+    <b-modal id="view-modal" size="lg" scrollable title="View Outfit" hide-footer>
+      <ViewModal 
+        v-bind:initOutfitData="forEditData"
+      />
+    </b-modal>
+    <!-- view modal end -->
+
   </div>
 </template>
 
 <script>
 import OutfitCard from "./OutfitCard";
 import AddEditModal from "./AddEditModal"
+import ViewModal from "./ViewModal"
 import axios from "axios";
 
 const BASE_API_URL = "http://localhost:7070/";
@@ -104,7 +114,7 @@ export default {
     this.outfits = response.data;
   },
   components: {
-    OutfitCard, AddEditModal
+    OutfitCard, AddEditModal, ViewModal
   },
   props: ["forEditData"],
   data: function () {
@@ -147,6 +157,14 @@ export default {
       // set data
       this.forEditData = response.data.outfit;
       document.getElementById("edit-modal").click();
+    },
+    viewOutfit: async function(outfitId) {
+      // get outfit data
+      let response = await axios.get(BASE_API_URL + "outfits/" + outfitId);
+      // set data
+      this.forEditData = response.data.outfit;
+      console.log("DATA: " + JSON.stringify(this.forEditData));
+      document.getElementById("view-modal").click();
     },
     deleteOutfit: async function(outfitId) {
       if (confirm("Are you sure you want to delete this outfit? Press OK to confirm")) {

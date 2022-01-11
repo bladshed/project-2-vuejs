@@ -9,8 +9,8 @@
         <img class="mx-0" v-bind:src="outfit.img_url" alt="" />
     </div>
     <div class="d-flex flex-row justify-content-center align-items-center">
-        <button class="btn-sm btn-warning mb-3 m-2 col-4" v-on:click="editOutfit">Edit</button>
-        <button class="btn-sm btn-success mb-3 m-2 col-4">View</button>
+        <button class="btn-sm btn-success mb-3 m-2 col-4" v-on:click="editOutfit">Edit</button>
+        <button class="btn-sm btn-success mb-3 m-2 col-4" v-on:click="viewOutfit">View</button>
     </div>
     <div class="card-footer text-muted">
         {{ this.outfit.dateModified ? this.outfit.dateModified.split("T")[0] : this.outfit.dateCreated.split("T")[0] }}
@@ -30,6 +30,9 @@ export default {
   methods: {
     editOutfit: function () {
       this.$emit("edit-outfit", this.outfit._id);
+    },
+    viewOutfit: function () {
+      this.$emit("view-outfit", this.outfit._id);
     },
     deleteOutfit: function () {
       this.$emit("delete-outfit", this.outfit._id);

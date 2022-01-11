@@ -79,18 +79,22 @@ export default {
   methods: {
     editReview: function () {
       this.review.isNew = true;
-      this.$emit("edit-review", this.review);
     },
     saveReview: async function () {
-      await this.$emit("save-review", this.review);
-      this.review = {
-        id: '',
-        submittedBy: '',
-        rating: '',
-        comment: '',
-        dateCreated: '',
-        dateModified: '',
-        isNew: true
+      if(this.review.id){
+        this.review.isNew = false;
+        this.$emit("edit-review", this.review);
+      } else {
+        await this.$emit("save-review", this.review);
+        this.review = {
+          id: '',
+          submittedBy: '',
+          rating: '',
+          comment: '',
+          dateCreated: '',
+          dateModified: '',
+          isNew: true
+        }
       }
     },
     deleteReview: function () {

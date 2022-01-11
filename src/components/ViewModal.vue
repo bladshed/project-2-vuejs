@@ -58,12 +58,12 @@ export default {
     addEditReview: async function(review) {
       console.log("Review data:" + JSON.stringify(review))
       if(review.id){
-        // call edit review api
-        await axios.put(BASE_API_URL + "outfits/" +this.viewOutfit._id, review);
-        alert("Edit Outfit Successful!")
+        // call edit review api /reviews/:reviewId
+        await axios.put(BASE_API_URL + "reviews/" + review.id, review);
+        alert("Edit Review Successful!")
       } else {
         // call add new api /outfits/:id/reviews/add
-        // await axios.post(BASE_API_URL + "outfits/" +this.viewOutfit._id + "/reviews/add", review);
+        // await axios.post(BASE_API_URL + "outfits/" + this.viewOutfit._id + "/reviews/add", review);
         // alert("New Review Added!");
       }
       // refresh data

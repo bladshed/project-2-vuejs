@@ -18,6 +18,7 @@
         v-bind:key="review._id"
         v-bind:forReview="review"
         v-on:edit-review="addEditReview"
+        v-on:delete-review="deleteReview"
       />
       <ReviewCard 
         v-bind:forReview="{
@@ -56,18 +57,26 @@ export default {
       this.viewOutfit = response.data.outfit;
     },
     addEditReview: async function(review) {
-      console.log("Review data:" + JSON.stringify(review))
       if(review.id){
         // call edit review api /reviews/:reviewId
         await axios.put(BASE_API_URL + "reviews/" + review.id, review);
         alert("Edit Review Successful!")
       } else {
         // call add new api /outfits/:id/reviews/add
-        // await axios.post(BASE_API_URL + "outfits/" + this.viewOutfit._id + "/reviews/add", review);
-        // alert("New Review Added!");
+        await axios.post(BASE_API_URL + "outfits/" + this.viewOutfit._id + "/reviews/add", review);
+        alert("New Review Added!");
       }
       // refresh data
       this.refreshOutfitData();
+    },
+    deleteReview: async function(reviewId) {
+      if (confirm("Are you sure you want to delete this review? Press OK to confirm")) {
+        // call delete api
+        await axios.delete(BASE_API_URL + "reviews/" + reviewId);
+        // refresh data
+        this.refreshOutfitData();
+        alert("Delete Review Successful!")
+      }
     }
   },
   computed: {

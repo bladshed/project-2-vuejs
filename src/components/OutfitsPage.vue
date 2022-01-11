@@ -172,7 +172,7 @@ export default {
         await axios.delete(BASE_API_URL + "outfits/" + outfitId);
         // refresh data list
         this.refreshData();
-        alert("delete Outfit Successful!")
+        alert("Delete Outfit Successful!")
       }
     }
   }

@@ -81,20 +81,26 @@ export default {
       this.review.isNew = true;
     },
     saveReview: async function () {
-      if(this.review.id){
-        this.review.isNew = false;
-        this.$emit("edit-review", this.review);
-      } else {
-        await this.$emit("save-review", this.review);
-        this.review = {
-          id: '',
-          submittedBy: '',
-          rating: '',
-          comment: '',
-          dateCreated: '',
-          dateModified: '',
-          isNew: true
+      if(this.review.submittedBy.length > 0
+       && this.review.comment.length > 0
+       && this.review.rating){
+        if(this.review.id){
+          this.review.isNew = false;
+          this.$emit("edit-review", this.review);
+        } else {
+          await this.$emit("save-review", this.review);
+          this.review = {
+            id: '',
+            submittedBy: '',
+            rating: '',
+            comment: '',
+            dateCreated: '',
+            dateModified: '',
+            isNew: true
+          }
         }
+      } else {
+         alert("Please fill up everything");
       }
     },
     deleteReview: function () {

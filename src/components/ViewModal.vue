@@ -37,7 +37,7 @@
 import ReviewCard from "./ReviewCard";
 import axios from "axios";
 
-const BASE_API_URL = "http://localhost:7070/";
+const BASE_API_URL = "https://fms-project-2-apis.herokuapp.com/";
 
 export default {
   name: "ViewModal",

@@ -105,7 +105,7 @@ import ViewModal from "./ViewModal"
 import axios from "axios";
 import qs from 'qs'
 
-const BASE_API_URL = "http://localhost:7070/";
+const BASE_API_URL = "https://fms-project-2-apis.herokuapp.com/";
 
 export default {
   name: "OutfitsPage",

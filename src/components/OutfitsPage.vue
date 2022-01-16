@@ -1,5 +1,5 @@
 <template>
-  <div id="content-div" class="d-flex">
+  <div id="content-div" class="d-flex" v-bind:style="{ height: '100vh' }">
     <main class="d-flex py-3 w-100">
       <!-- search column start -->
       <div class="col-2 p-3 justify-content-center align-items-center" id="search-div">
@@ -200,9 +200,9 @@ export default {
 </script>
 
 <style>
-#content-div{
+/* #content-div{
   height: 100vh;
-}
+} */
 #search-div {
   background-color: rgb(241, 241, 241);
   height: 80vh;

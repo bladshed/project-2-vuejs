@@ -6,6 +6,7 @@ This may also help people that are not yet into fashion, they can look some styl
 I believe this application will be a big help to those people who are undecided with what kind of clothes to wear, because you always aim to look good whenever you go out, especially when you are on a date.
 
 Live link to my Web Application --> [Web Application](https://youthful-poitras-4c446c.netlify.app/)
+
 If the link above didn't work, please initialize the backend API by accessing this link [API](https://fms-project-2-apis.herokuapp.com/outfits)
 
 ### PROJECT SETUP

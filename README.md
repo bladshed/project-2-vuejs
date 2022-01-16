@@ -155,7 +155,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         </ul>
       </td>
       <td>
-         Done (except for dropdown, not applicable)
+        Done (except for dropdown, not applicable)
       </td>
    <tr>
    <tr>
@@ -163,102 +163,119 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         Each instance of using v-bind to customize the style attribute of a HTML element
       </td>
       <td>
-         <ul>
-            <li>scripts/data.js</li>
-            <li>scripts/page-control.js</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done (see #content-div div in OutfitsPage.vue)
       </td>
    <tr>
    <tr>
       <td>
-         Modifying the CSS of DOM elements based on the user's actions 
+        Each instance of v-if
       </td>
       <td>
-         <ul>
-            <li>index.html</li>
-            <li>css/custom.css</li>
-         </ul>
+        Done
       </td>
    <tr>
    <tr>
       <td>
-         Use of 1D traversal of array
+        Each computed property
       </td>
       <td>
-         scripts/data.js
-      </td>
-   <tr>
-   <tr>
-      <td>
-         Each use of a unique functional mapping method (map, reduce, filter)
-      </td>
-      <td>
-         <ul>
-            <li>scripts/data.js</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done
       </td>
    <tr>
    <tr>
       <td>
-         Each use of CSS layout technique (Bootstrap columns, flex box, grid)
+        Each event handler with v-on
       </td>
       <td>
-         index.html
-      </td>
-   <tr>
-   <tr>
-      <td>
-         Each possible search or filtering criteria in the user interface
-      </td>
-      <td>
-         <ul>
-            <li>Navigate to Maps page</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done
       </td>
    <tr>
    <tr>
       <td>
-         Each case of the map updating base on the user's actions
+        Each instance of list rendering
       </td>
       <td>
-         <ul>
-            <li>Navigate to Maps page</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done
       </td>
    <tr>
    <tr>
       <td>
-         Each group of layers in the Leaflet map
+        Each instance of adding to a list
       </td>
       <td>
-         <ul>
-            <li>Navigate to Maps page</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done
       </td>
    <tr>
    <tr>
       <td>
-         Each group of marker clustering
+        Each instance of removing from a list
       </td>
       <td>
-         <ul>
-            <li>Navigate to Maps page</li>
-            <li>scripts/script.js</li>
-         </ul>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each instance of modifying an item in a list
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each use of a life cycle method in a component (componentDidMount for example)
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each use of props
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each custom event emitted and consumed by a parent component
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each component used beyond the first two (including App.vue)
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Client side searching
+      </td>
+      <td>
+        Done
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Used b-modal from bootstrap-vue
+      </td>
+      <td>
+        Done
       </td>
    <tr>
 </table>
 
 
 ### CREDITS
-* For my mall images 
-   * [sg.hotels.com](https://sg.hotels.com/go/singapore/best-singapore-shopping-malls)
-* For my park images 
-   * [timeout.com](https://www.timeout.com/singapore/things-to-do/the-prettiest-parks-in-singapore)
+* Thanks to Mr Paul Chor, our teacher for Node js, Express and Vue js
+* Thanks to positronx for the sample b-modal implementation
+   * [positronx](https://www.positronx.io/how-to-add-and-use-bootstrap-modal-in-vue-js-app/)
 * For my code snippets, tutorial, questions and saviour of all developers
    * [Google](https://www.google.com/)

@@ -48,13 +48,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### FEATURES
 * The main feature of this web application is the reactive programming that handles real-time updates.
 
-* I used vue js for the reactive programming, it's super developer friendly, easy to implement and there are a of lot features that they can offer that are very useful too.
+* I used vue js for the reactive programming, it's super developer friendly, easy to implement and there are a of lot features that it can offer that are very useful too.
 
 
 ### TECHNOLOGIES USED
 
 * Vue js
-   * To build my web application
+   * To build my reactive web application
 
 * CSS
    * To customize my html elements

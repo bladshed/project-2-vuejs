@@ -11,7 +11,7 @@
         <input id="search-input" class="form-control" type="text" placeholder="search input" v-model="searchInput"/>
         <hr />
         <label>Types</label>
-        <div class="form-check">
+        <!-- <div class="form-check">
           <input class="form-check-input" type="checkbox" id="search-formal" name="search-formal" value="formal" v-model="searchType"/>
           <label class="form-check-label" for="search-formal">
             Formal
@@ -28,7 +28,13 @@
           <label class="form-check-label" for="search-streetwear">
             Streetwear
           </label>
-        </div>
+        </div> -->
+        <select class="form-select" multiple aria-label="Types" v-model="searchType">
+          <option value="">all</option>
+          <option>formal</option>
+          <option>casual</option>
+          <option>streetwear</option>
+        </select>
 
         <hr />
         <label>Genders</label>
@@ -180,6 +186,9 @@ export default {
       }
     },
     searchQuery: async function() {
+      if(this.searchType.length == 1 && this.searchType[0].trim() ===''){
+        this.searchType = [];
+      }
       // call search api
       let results = await axios.get(BASE_API_URL + 'outfit-search', {
         params: {

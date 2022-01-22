@@ -13,7 +13,7 @@
         <p class="card-title"><b>{{review.comment}}</b></p>
       </div>
       <div v-else>
-        <input type="text" class="form-control" placeholder="comment" id="comment" v-model="review.comment">
+        <textarea type="text" class="form-control" placeholder="comment" id="comment" v-model="review.comment"></textarea>
       </div>
 
       <!-- rating -->

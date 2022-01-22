@@ -156,7 +156,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         </ul>
       </td>
       <td>
-        Done (except for dropdown, not applicable)
+        Done
       </td>
    <tr>
    <tr>

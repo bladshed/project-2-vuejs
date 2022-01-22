@@ -12,7 +12,7 @@
     <!-- types -->
     <div>
         <label>Type: </label>
-        <div class="form-check form-check-inline ms-2 mt-3">
+        <!-- <div class="form-check form-check-inline ms-2 mt-3">
             <input class="form-check-input" type="radio" name="type" id="formal" value="formal" v-model="newOutfit.type">
             <label class="form-check-label" for="formal">Formal</label>
         </div>
@@ -23,7 +23,13 @@
         <div class="form-check form-check-inline ms-2 mt-3">
             <input class="form-check-input" type="radio" name="type" id="streetwear" value="streetwear" v-model="newOutfit.type">
             <label class="form-check-label" for="streetwear">Streetwear</label>
-        </div>
+        </div> -->
+        <select class="form-select ms-2 mt-3" aria-label="Default select" v-model="newOutfit.type">
+          <option selected disabled>choose type</option>
+          <option>formal</option>
+          <option>casual</option>
+          <option>streetwear</option>
+        </select>
     </div>
     <div v-if="isTypeOk === false && hasSubmitted === true" class="red-font">
         * Please choose type

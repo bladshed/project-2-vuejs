@@ -265,7 +265,15 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    <tr>
    <tr>
       <td>
-        Used b-modal from bootstrap-vue
+        Every feature not listed above
+      </td>
+      <td>
+        Done (used b-modal from bootstrap-vue)
+      </td>
+   <tr>
+   <tr>
+      <td>
+        Each customizable component that can be reused
       </td>
       <td>
         Done

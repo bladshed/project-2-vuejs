@@ -117,8 +117,30 @@ export default {
   name: "OutfitsPage",
   created: async function () {
     // initialize data
-    let response = await axios.get(BASE_API_URL + "outfits");
-    this.outfits = response.data;
+    // let response = await axios.get(BASE_API_URL + "outfits");
+    // this.outfits = response.data;
+
+    let outfitsData;
+
+    await axios.get(BASE_API_URL + "outfits")
+      .then(function (response) {
+        console.log("SUCCESS")
+        outfitsData = response.data;
+      })
+      .catch(function (error) {
+        console.log("ERROR: " + error);
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+        setTimeout(async function() {
+          let response = await axios.get(BASE_API_URL + "outfits");
+          outfitsData = response.data;
+        }, 2000);
+      });
+
+    this.outfits = outfitsData;
   },
   components: {
     OutfitCard, AddEditModal, ViewModal

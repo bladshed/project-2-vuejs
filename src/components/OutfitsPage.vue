@@ -126,7 +126,7 @@ export default {
     do {
       await axios.get(BASE_API_URL + "outfits")
       .then(function (response) {
-        console.log("SUCCESS")
+        console.log("SUCCESS");
         outfitsData = response.data;
         output = 1;
       })

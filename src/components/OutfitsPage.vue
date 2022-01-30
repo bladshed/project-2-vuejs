@@ -121,14 +121,18 @@ export default {
     // this.outfits = response.data;
 
     let outfitsData;
+    let output = 0;
 
-    await axios.get(BASE_API_URL + "outfits")
+    do {
+      await axios.get(BASE_API_URL + "outfits")
       .then(function (response) {
         console.log("SUCCESS")
         outfitsData = response.data;
+        output = 1;
       })
       .catch(function (error) {
         console.log("ERROR: " + error);
+        output = 0;
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
@@ -139,6 +143,7 @@ export default {
           outfitsData = response.data;
         }, 2000);
       });
+    } while (output != 1);
 
     this.outfits = outfitsData;
   },

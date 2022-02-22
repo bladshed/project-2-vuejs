@@ -69,6 +69,11 @@ If the link above didn't work, please initialize the backend API by accessing th
 * To allow user to do CRUD for an outfit
 * To allow user to share their reviews
 
+### UI/UX
+* [Wireframes link](src/images)
+
+* The design fonts colors revolves in neutral color because the background that I used is a bit wild (colorful). For buttons, I used green, blue and red, I chose these colors because it represents the nature's colors, blue and green are very pleasing to the eyes, red to catch the attention.
+
 
 ### Architectural decisions and constraints
 
@@ -146,7 +151,32 @@ If the link above didn't work, please initialize the backend API by accessing th
 * Non-Functional
    * Performance
       * API calls takes less than 2 seconds
-      * Database read/write is fast
+      * Database read/write take less than 1 second to process
+   
+   * Storage
+      * Cannot store more than 2 gb since Im only using free db
+
+   * Security
+      * Application grants access to anyone
+      * All users can see data
+      * Doesn't show any personal data aside from email
+
+   * Portability and compatibility
+      * Works with any browsers
+      * Work with any OS as long as it uses a browser
+      * Works with phones and tablets
+
+   * Maintainability
+      * Bug fix many only take a few minutes since it's a small application
+   
+   * Availability
+      * Application is always accessible to users any time
+      * No login needed, can use the web applicaiton right away
+
+   * Usability
+      * Application is pretty straight forward
+      * UI is very simple and easy to understand
+   
 
 ### High Level Design
 * [HLD link](src/images)
@@ -174,10 +204,41 @@ yarn lint
 #### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### UI/UX
-* [Wireframes link](src/images)
+### Build & Deployment
+* Initialize project
+   * npm install -g @vue/cli
+   * vue create .
+   * yarn add bootstrap
+   * npm i -g @vue/cli-service-global
+   * yarn add axios
+   * npm i bootstrap-vue
+   * yarn add @fortawesome/fontawesome-svg-core@next (optional)
+   * yarn add @fortawesome/free-solid-svg-icons@next (optional)
+   * yarn add @fortawesome/free-regular-svg-icons@next (optional)
+   * yarn add @fortawesome/vue-fontawesome@latest (optional)
+   * yarn add qs (optional)
 
-* The design fonts colors revolves in neutral color because the background that I used is a bit wild (colorful). For buttons, I used green, blue and red, I chose these colors because it represents the nature's colors, blue and green are very pleasing to the eyes, red to catch the attention.
+* Commit and push changes
+   * git commit -m "commit message"
+
+* BACKEND
+   * Deploy to Heroku
+      * Register an account with Heroku at [https://www.heroku.com](https://www.heroku.com)
+      * At the terminal, log in to heroku with:
+         * heroku login -i
+      * heroku create <app-name>
+      * Add a start script to package.json
+      * git push heroku master
+      * Setup the config variables in Heroku client app
+
+* FRONTEND
+   * Deploy to Netlify
+      * Register an account with Netlify at [https://www.netlify.com](https://www.netlify.com/)
+      * Add A New Project
+      * Link your Github account and authorize Netlify
+      * Select Your Repo
+      * Configure Your Settings
+   * Every time you commit and push to your github, Netlify will get the latest code
 
 
 ### TEST CASES

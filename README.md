@@ -1,13 +1,155 @@
 ### PROJECT OVERVIEW
 This project was made for people who are into fashion or style. The purpose of this web application is to let people share their fashion/style.
 
-This may also help people that are not yet into fashion, they can look some styles that may help them or give them an idea of how to look good.
+This may also help people that are not yet into fashion, they can look some styles that may help them or give them ideas on how to style.
 
 I believe this application will be a big help to those people who are undecided with what kind of clothes to wear, because you always aim to look good whenever you go out, especially when you are on a date.
 
 Live link to my Web Application --> [Web Application](https://youthful-poitras-4c446c.netlify.app/)
 
 If the link above didn't work, please initialize the backend API by accessing this link [API](https://fms-project-2-apis.herokuapp.com/outfits)
+
+## BUSINESS
+
+### Business problem
+1) Business problem solving
+   * can not find an efficient way to look for an outfit to wear on the internet
+   * search engine is too broad and choices are not focused according to user preference
+   * no reviews to show to the users
+
+2) What was the solution
+   * to have a repository of fashion wear suggestion for yuppies and students on the go
+   * to focus on the specific outfits they want to see
+   * to let people interact with one another and make suggestions
+   * a comprehensive online application where people can get suggested fashion wear 24/7 and share suggested fashion wear to the community
+
+3) Results of the implementation
+   * the application was tried and tested by selected individuals and made the following comments.
+      * User was able to view outfits that are available.
+      * User was able add my his/her own style to share it to people. 
+      * User was able to edit or delete an outfit from the list.
+      * User was able to add reviews to outfits that were submitted by other people.
+      * User was able to edit his/her review/s.
+
+4) Lessons learned
+   * What was done well?
+      * implemented reactive programming and by using it, it was easier for me to develop the application since it lessens the code I need to write
+      * client-server communication was done nicely
+      * deploying and updating the application was okay
+      * testing the application was smooth because some of my friends helped me
+   
+   * What didn't go that well?
+      * UI was not very nice since I didn't have enough time to do it because I was also busy with my work
+      * implementing technologies that you are not yet very familiar with was very challenging since you need to learn so many things, it is very time consuming
+
+   * What else could be improved?
+      * Improve UI to make it more pleasing to users
+      * To have a User Management System
+
+
+### FEATURES
+* Able to view, add, edit, delete an outfit
+* People can share their reviews in every outfit
+* The main feature of this web application is the reactive programming that handles real-time updates
+
+
+### USER STORIES
+* US01. As a user, I want to view outfits that are available.
+* US02. As a user, I want to add my own style to share it to people. 
+* US03. As a user, I want to edit or delete in case I changed my mind with the fashion/style that I added.
+* US04. As a user, I want to add some reviews to outfits that were submitted by other users.
+* US05. As a user, I want to be able to edit my review/s in case there is a typo. 
+
+
+## TECHNICAL
+
+### Understanding of the business problem
+* I need to have a database for storing data
+* Build a search engine that returns only what is relevant
+* To allow user to do CRUD for an outfit
+* To allow user to share their reviews
+
+
+### Architectural decisions and constraints
+
+* Github for CI/CD
+
+* IDE
+   * Visual Studio Code
+      * Pros:
+         * developer friendly
+         * can develop both backend and frontend
+      * Cons:
+         * not yet familiar
+
+* DATABASE
+   * Mongo DB
+      * Pros:
+         * faster
+         * lightweight
+         * uses javascript for query
+      * Cons:
+         * data is not consistent
+         * not yet familiar
+
+* BACKEND
+   * Node js
+      * Pros:
+         * uses javascript
+         * lightweight
+         * most language used in development so it is easier to connect to other systems
+      * Cons:
+         * not yet familiar
+   
+   * Express framework
+      * Pros:
+         * provides a thin layer of fundamental web application features
+      * Cons:
+         * not good for big application
+
+* FRONTEND
+   * Vue js
+      * Pros:
+         * uses javascript
+         * reactive programming (real-time update)
+         * less development time
+      * Cons:
+         * new technology, need time to learn
+
+   * Bootstrap
+      * Pros:
+         * provides basic element designs
+         * helps to manipulate html elements 
+         * save time in designing your UI
+      * Cons:
+         * heavyweight
+   
+
+### DEPENDENCIES USED
+   * bootstrap-vue
+      * I used this for my pop-up modals when adding, editing or viewing outfit data.
+
+   * qs
+      * I used query string parsing when passing my query data to my search API.
+
+   * Google fonts and Font awesome
+      * these two libraries were used for my fonts and icons. They have cool fonts and icons.
+
+### FUNCTIONAL AND NON FUNCTIONAL REQUIREMENTS
+
+* Functional
+   * Able to create, read, update and delete an outfit
+   * Able to create, read, update and delete a review of an outfit
+   * Users are able to see other users added outfits
+   * Users are able to see other users reviews
+
+* Non-Functional
+   * Performance
+      * API calls takes less than 2 seconds
+      * Database read/write is fast
+
+### High Level Design
+* [HLD link](src/images)
 
 ### PROJECT SETUP
 ```
@@ -28,6 +170,7 @@ yarn build
 ```
 yarn lint
 ```
+
 #### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
@@ -35,35 +178,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * [Wireframes link](src/images)
 
 * The design fonts colors revolves in neutral color because the background that I used is a bit wild (colorful). For buttons, I used green, blue and red, I chose these colors because it represents the nature's colors, blue and green are very pleasing to the eyes, red to catch the attention.
-
-
-### USER STORIES
-* US01. As a user, I want to view outfits that are available.
-* US02. As a user, I want to add my own style to share it to people. 
-* US03. As a user, I want to edit or delete in case I changed my mind with the fashion/style that I added.
-* US04. As a user, I want to add some reviews to outfits that were submitted by other users.
-* US05. As a user, I want to be able to edit my review/s in case there is a typo. 
-
-
-### FEATURES
-* The main feature of this web application is the reactive programming that handles real-time updates.
-
-* I used vue js for the reactive programming, it's super developer friendly, easy to implement and there are a of lot features that it can offer that are very useful too.
-
-
-### TECHNOLOGIES USED
-
-* Vue js
-   * To build my reactive web application
-
-* CSS
-   * To customize my html elements
-
-* Javascript
-   * I used javascript to control all the functionalities of my application, it is like the brain of my application
-
-* Visual Studio Code
-   * IDE that I used for this project because it's easy to code here and easy to manage your files and data
 
 
 ### TEST CASES
@@ -110,23 +224,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
       <td>Be able to delete a review</td>
    </tr>
 </table>
-
-
-### PLATFORM USED
-* Github for CI/CD
-* Dependencies used
-   * bootstrap (for my CSS)
-      * I used bootstrap in my entire UI web application because it's super easy to manipulate html elements and they also provide basic element designs where I was able to save a lot time in designing like my buttons, navbar, etc.
-
-   * bootstrap-vue
-      * I used this for my pop-up modals when adding, editing or viewing outfit data.
-
-   * qs
-      * I used query string parsing when passing my query data to my search API.
-
-   * Google fonts and Font awesome
-      * These two libraries were used for my fonts and icons. They have cool fonts and icons.
-
 
 ### PROJECT COMPLEXITY
 <table>

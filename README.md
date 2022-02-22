@@ -258,31 +258,31 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    </tr>
    <tr>
       <td>Add outfit</td>
-      <td>Be able to add an outfit data</td>
+      <td>Added new outfit data</td>
    </tr>
    <tr>
       <td>Delete outfit</td>
-      <td>Be able to delete an outfit data</td>
+      <td>Deleted an outfit data</td>
    </tr>
    <tr>
       <td>Edit outfit</td>
-      <td>Be able to edit an outfit data</td>
+      <td>Edited an outfit data</td>
    </tr>
    <tr>
       <td>View outfit</td>
-      <td>Be able to view an outfit data</td>
+      <td>Able to view an outfit data</td>
    </tr>
    <tr>
       <td>Click View > scroll down, add a review</td>
-      <td>Be able to add a review</td>
+      <td>Added new review</td>
    </tr>
    <tr>
       <td>Click View > scroll down, edit a review</td>
-      <td>Be able to edit a review</td>
+      <td>Edited a review</td>
    </tr>
    <tr>
       <td>Click View > scroll down, delete a review</td>
-      <td>Be able to delete a review</td>
+      <td>Deleted a review</td>
    </tr>
 </table>
 

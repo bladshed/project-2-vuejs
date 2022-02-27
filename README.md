@@ -15,7 +15,7 @@ If the link above didn't work, please initialize the backend API by accessing th
 1) Business problem solving
    * can not find an efficient way to look for an outfit to wear on the internet
    * search engine is too broad and choices are not focused according to user preference
-   * no reviews to show to the users
+   * no place to share and see other people's reviews (as fashion is heavily dependent on trend so opinions and reviews are very important for them)
 
 2) What was the solution
    * to have a repository of fashion wear suggestion for yuppies and students on the go
@@ -151,10 +151,10 @@ If the link above didn't work, please initialize the backend API by accessing th
 * Non-Functional
    * Performance
       * API calls takes less than 2 seconds
-      * Database read/write take less than 1 second to process
+      * Database read/write takes less than 2 second to process
    
    * Storage
-      * Cannot store more than 2 gb since Im only using free db
+      * Cannot store more than 512mb since Im only using free edition
 
    * Security
       * Application grants access to anyone
@@ -163,11 +163,12 @@ If the link above didn't work, please initialize the backend API by accessing th
 
    * Portability and compatibility
       * Works with any browsers
-      * Work with any OS as long as it uses a browser
+      * Works with any OS as long as it uses web browser
       * Works with phones and tablets
 
    * Maintainability
       * Bug fix many only take a few minutes since it's a small application
+      * Easy to troubleshoot since it uses javascript from backend to frontend
    
    * Availability
       * Application is always accessible to users any time
